@@ -11,7 +11,7 @@ fuel:
       disk: 200G
       memory: 6G
   ADMIN_NETWORK:
-    dhcp_pool_end: 172.31.104.200
+    dhcp_pool_end: 172.31.104.211
     ssh_network: 192.168.100.255/20
   DNS_DOMAIN: domain.tld
   DNS_SEARCH: domain.tld
@@ -27,7 +27,7 @@ nodes:
     "fc:aa:14:e9:51:35":
       - fuelweb_admin
   power:
-    ipmiIp: 172.16.2.13
+    ipmiIp: 172.16.2.131234
     ipmiPass: Winter2017
     ipmiUser: opnfv
     pxeMac: fc:aa:14:e9:57:25
@@ -60,3 +60,25 @@ nodes:
       "string2": 
         key1: hello
         key2: hello
+nodes1:
+- role: controller
+  interfaces:
+    "30:b5:c2:00:11:5f":
+      - - public
+        - management
+      - - private
+        - storage
+    "fc:aa:14:e9:51:36":
+      - - fuelweb_admin
+        - fuelweb_admin1
+- role: compute
+  interfaces:
+    "30:b5:c2:00:11:5f":
+      - - public
+        - management
+      - - private
+        - storage
+    "fc:aa:14:e9:51:36":
+      - - fuelweb_admin
+        - fuelweb_admin1
+

@@ -33,3 +33,9 @@ nodes:
       "<ANYVAL>": 
         key1: "^([0-9A-Za-z-]{5,30})$"
         key2: "^([0-9A-Za-z-]{5,30})$"
+
+nodes1:
+- role: "^([0-9A-Za-z-]{5,30})$"
+  interfaces:
+    "<ANYVAL>":
+      - - "^([0-9A-Ya-z-_]{5,30})$"
