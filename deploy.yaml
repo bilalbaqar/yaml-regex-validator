@@ -5,16 +5,16 @@ environment:
   net_segment_type: vlan
 
 
-#fuel:
-#  virtual_machine:
-#    specs:
-#      disk: 200G
-#      memory: 6G
-#  ADMIN_NETWORK:
-#    dhcp_pool_end: 172.31.104.200
-#    ssh_network: 0.0.0.0/0
-#  DNS_DOMAIN: domain.tld
-#  DNS_SEARCH: domain.tld
+fuel:
+  virtual_machine:
+    specs:
+      disk: 200G
+      memory: 6G
+  ADMIN_NETWORK:
+    dhcp_pool_end: 172.31.104.200
+    ssh_network: 192.168.100.255/20
+  DNS_DOMAIN: domain.tld
+  DNS_SEARCH: domain.tld
 
 nodes:
 - role: controller

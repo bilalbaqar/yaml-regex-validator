@@ -1,33 +1,35 @@
+
+
 # Template
-wanted_release: Newton on Ubuntu 16.041
+wanted_release: "^([0-9A-Za-z-. ]{5,30})$"
 environment:
-  name: test-env1
-  net_segment_type: vlan1
+  name: "^([0-9A-Za-z-]{5,30})$"
+  net_segment_type: "^([0-9A-Za-z-]{1,10})$"
 
 
-#fuel:
-#  virtual_machine:
-#    specs:
-#      disk: 200G1
-#      memory: 6G1
-#  ADMIN_NETWORK:
-#    dhcp_pool_end: 172.31.104.2001
-#    ssh_network: 0.0.0.0/01
-#  DNS_DOMAIN: domain.tld1
-#  DNS_SEARCH: domain.tld1
+fuel:
+  virtual_machine:
+    specs:
+      disk: "^([0-9A-Za-z-.]{1,30})$"
+      memory: "^([0-9A-Za-z-]{1,30})$"
+  ADMIN_NETWORK:
+    dhcp_pool_end: '^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$'
+    ssh_network: '^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))$'
+  DNS_DOMAIN: "^([0-9A-Za-z-.]{5,30})$"
+  DNS_SEARCH: "^([0-9A-Za-z-.]{5,30})$"
 
 
 nodes:
-- role: controller1
+- role: "^([0-9A-Za-z-]{5,30})$"
   interfaces:
     "<ANYVAL>":
-      - public1
+      - "^([0-9A-Za-z-_]{5,30})$"
   power:
-    ipmiIp: 172.16.2.131
-    ipmiPass: Winter20171
-    ipmiUser: opnfv1
-    pxeMac: fc:aa:14:e9:57:251
+    ipmiIp: '^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$'
+    ipmiPass: "^([0-9A-Za-z-]{5,30})$"
+    ipmiUser: "^([0-9A-Za-z-]{5,30})$"
+    pxeMac: "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
     pxeDAMN:
       "<ANYVAL>": 
-        key1: hello
-        key2: hello
+        key1: "^([0-9A-Za-z-]{5,30})$"
+        key2: "^([0-9A-Za-z-]{5,30})$"
