@@ -1,0 +1,33 @@
+# Template
+wanted_release: Newton on Ubuntu 16.041
+environment:
+  name: test-env1
+  net_segment_type: vlan1
+
+
+#fuel:
+#  virtual_machine:
+#    specs:
+#      disk: 200G1
+#      memory: 6G1
+#  ADMIN_NETWORK:
+#    dhcp_pool_end: 172.31.104.2001
+#    ssh_network: 0.0.0.0/01
+#  DNS_DOMAIN: domain.tld1
+#  DNS_SEARCH: domain.tld1
+
+
+nodes:
+- role: controller1
+  interfaces:
+    "<ANYVAL>":
+      - public1
+  power:
+    ipmiIp: 172.16.2.131
+    ipmiPass: Winter20171
+    ipmiUser: opnfv1
+    pxeMac: fc:aa:14:e9:57:251
+    pxeDAMN:
+      "<ANYVAL>": 
+        key1: hello
+        key2: hello

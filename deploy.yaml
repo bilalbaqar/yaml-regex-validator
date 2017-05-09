@@ -1,0 +1,62 @@
+# Deploy
+wanted_release: Newton on Ubuntu 16.04
+environment:
+  name: test-env
+  net_segment_type: vlan
+
+
+#fuel:
+#  virtual_machine:
+#    specs:
+#      disk: 200G
+#      memory: 6G
+#  ADMIN_NETWORK:
+#    dhcp_pool_end: 172.31.104.200
+#    ssh_network: 0.0.0.0/0
+#  DNS_DOMAIN: domain.tld
+#  DNS_SEARCH: domain.tld
+
+nodes:
+- role: controller
+  interfaces:
+    "30:b5:c2:00:11:5e":
+      - public
+      - management
+      - private
+      - storage
+    "fc:aa:14:e9:51:35":
+      - fuelweb_admin
+  power:
+    ipmiIp: 172.16.2.13
+    ipmiPass: Winter2017
+    ipmiUser: opnfv
+    pxeMac: fc:aa:14:e9:57:25
+    pxeDAMN: showuldbeworng
+    pxeDAMN:
+      "strin3": 
+        key1: hello
+        key2: hello
+      "string4": 
+        key1: hello
+        key2: hello
+- role: controller
+  interfaces:
+    "30:b5:c2:00:11:5f":
+      - public
+      - management
+      - private
+      - storage
+    "fc:aa:14:e9:51:36":
+      - fuelweb_admin
+  power:
+    ipmiIp: 172.16.2.13
+    ipmiPass: Winter2017
+    ipmiUser: opnfv
+    pxeMac: fc:aa:14:e9:57:25
+    pxeDAMN:
+      "strin1": 
+        key1: hello
+        key2: hello
+      "string2": 
+        key1: hello
+        key2: hello
