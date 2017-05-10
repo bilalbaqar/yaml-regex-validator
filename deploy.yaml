@@ -33,10 +33,10 @@ nodes:
     pxeMac: fc:aa:14:e9:57:25
     pxeDAMN: showuldbeworng
     pxeDAMN:
-      "strin3": 
+      "fc:aa:14:e9:51:35": 
         key1: hello
         key2: hello
-      "string4": 
+      "fc:aa:14:e9:51:3@": 
         key1: hello
         key2: hello
 - role: controller
@@ -54,10 +54,10 @@ nodes:
     ipmiUser: opnfv
     pxeMac: fc:aa:14:e9:57:25
     pxeDAMN:
-      "strin1": 
+      "fc:aa:14:e9:51:35": 
         key1: hello
         key2: hello
-      "string2": 
+      "fc:aa:14:e9:51:3@": 
         key1: hello
         key2: hello
 nodes1:

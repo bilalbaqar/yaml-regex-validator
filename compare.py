@@ -45,6 +45,18 @@ def compare_value(val, cpr_val, key):
                         #print j
                         superkey=key+'->'+j
                         compare_value(val[j],cpr_val[k],superkey)
+                elif 'matchREGEX:-' in k: # if key is not in deploy.yaml data then check if there is a WILDCARD in template dictionary.
+                    #superkey=key+'-> * '
+                    keyregex = k.split("matchREGEX:-",1)[1]
+                    for j, l in val.iteritems(): # for each key in template dict that has the wildcard, iterate over all the keys in deploy.yaml dict and match values
+                        #print "Printing j:"
+                        #print j
+                        superkey=key+'->'+j
+                        if match_regex(keyregex,j):
+                            print 'KEY - PASS: key: %s regex: %s' % (superkey, keyregex)
+                            compare_value(val[j],cpr_val[k],superkey)
+                        else: 
+                            print 'KEY - MISMATCH XXXX: key: %s shoudl match regex: %s' % (superkey, keyregex)
                 else: # Key is missing in deploy.yaml data .. Change the lock.
                     superkey=key+'->'+k
                     print superkey + " should be present with value:" + type(cpr_val[k]).__name__

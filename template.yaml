@@ -30,7 +30,7 @@ nodes:
     ipmiUser: "^([0-9A-Za-z-]{5,30})$"
     pxeMac: "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
     pxeDAMN:
-      "<ANYVAL>": 
+      "matchREGEX:-^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$": 
         key1: "^([0-9A-Za-z-]{5,30})$"
         key2: "^([0-9A-Za-z-]{5,30})$"
 
